@@ -3,14 +3,8 @@ let buffer_size = 1024 * 8
 let range_validator file_size =
   fun (off, len) -> off + len <= file_size
 
-let range_valid file_size (off, len) =
-  (range_validator file_size) (off, len)
-
 let can_patch file_size ranges =
-  let valid_ranges =
-    List.filter (range_validator file_size) ranges
-  in
-  List.length valid_ranges <> List.length ranges
+  List.for_all (range_validator file_size) ranges
 
 let create_patch src dst ranges =
   if not (Sys.file_exists src) then
