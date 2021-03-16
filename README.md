@@ -14,7 +14,8 @@ The merging before audacity exports these was destroying the TIFF structure and 
 
 Building
 --------
-Make sure you have OCaml and dune installed, and run `dune build`.
+Make sure you have OCaml and dune installed, and run `dune build`.  
+Depends on [cmdliner](https://opam.ocaml.org/packages/cmdliner/).
 
 Bugs
 ----
